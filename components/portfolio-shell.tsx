@@ -223,42 +223,66 @@ export function PortfolioShell() {
     []
   );
 
-  const githubAction = useMemo(
-    () => profileData.contactActions.find((item) => item.label === "GitHub"),
+  const professionalPanel = useMemo(
+    () =>
+      profileData.resume.panels.find((panel) => panel.title === "How I Work") ??
+      profileData.resume.panels[0],
     []
   );
 
-  const contactActions = useMemo(
-    () => profileData.contactActions.filter((item) => item.label !== "GitHub"),
+  const educationPanel = useMemo(
+    () =>
+      profileData.resume.panels.find(
+        (panel) => panel.title === "Education & Learning"
+      ) ?? profileData.resume.panels[1],
     []
   );
 
   useEffect(() => {
-    const sections = Array.from(
-      document.querySelectorAll<HTMLElement>("[data-section-id]")
-    );
+    const sections = profileData.navigation
+      .map((item) => document.getElementById(item.id))
+      .filter(Boolean) as HTMLElement[];
 
-    const sectionObserver = new IntersectionObserver(
-      (entries) => {
-        const intersecting = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((left, right) => right.intersectionRatio - left.intersectionRatio);
+    if (!sections.length) {
+      return undefined;
+    }
 
-        if (intersecting[0]) {
-          setActiveSection(intersecting[0].target.id as SectionId);
+    let frameId = 0;
+
+    const syncActiveSection = () => {
+      const anchor = window.scrollY + window.innerHeight * 0.38;
+      let currentSection = sections[0];
+
+      for (const section of sections) {
+        if (anchor >= section.offsetTop) {
+          currentSection = section;
+        } else {
+          break;
         }
-      },
-      {
-        threshold: [0.16, 0.32, 0.48, 0.64],
-        rootMargin: "-18% 0px -56% 0px"
       }
-    );
 
-    sections.forEach((section) => sectionObserver.observe(section));
+      setActiveSection(currentSection.id as SectionId);
+      frameId = 0;
+    };
+
+    const requestSync = () => {
+      if (frameId === 0) {
+        frameId = window.requestAnimationFrame(syncActiveSection);
+      }
+    };
+
+    syncActiveSection();
+    window.addEventListener("scroll", requestSync, { passive: true });
+    window.addEventListener("resize", requestSync);
+    window.addEventListener("hashchange", requestSync);
 
     return () => {
-      sections.forEach((section) => sectionObserver.unobserve(section));
-      sectionObserver.disconnect();
+      if (frameId !== 0) {
+        window.cancelAnimationFrame(frameId);
+      }
+      window.removeEventListener("scroll", requestSync);
+      window.removeEventListener("resize", requestSync);
+      window.removeEventListener("hashchange", requestSync);
     };
   }, []);
 
@@ -270,24 +294,37 @@ export function PortfolioShell() {
             <div className={styles.brand}>
               <div className={styles.brandRow}>
                 <div className={styles.brandText}>
-                  <p className={styles.eyebrow}>Profile</p>
                   <h1>{profileData.person.name}</h1>
                 </div>
-                {githubAction ? (
-                  <a
-                    className={styles.brandIconLink}
-                    href={githubAction.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label="Open GitHub profile"
-                    title="GitHub"
-                  >
-                    <Icon kind="github" className={styles.icon} />
-                  </a>
-                ) : null}
               </div>
               <p className={styles.role}>{profileData.person.title}</p>
-              <p className={styles.meta}>{profileData.person.meta}</p>
+              <div className={styles.metaStack}>
+                <p className={styles.meta}>{profileData.person.meta.primary}</p>
+                <p className={styles.metaSecondary}>
+                  {profileData.person.meta.secondary}
+                </p>
+                <p className={styles.metaSecondary}>
+                  {profileData.person.meta.tertiary}
+                </p>
+              </div>
+              <div className={styles.contactRow}>
+                {profileData.contactActions.map((item) => (
+                  <a
+                    key={item.label}
+                    className={styles.contactButton}
+                    href={item.href}
+                    target={externalActionLabels.has(item.label) ? "_blank" : undefined}
+                    rel={externalActionLabels.has(item.label) ? "noreferrer" : undefined}
+                    aria-label={`${item.label}: ${item.value}`}
+                    title={`${item.label}: ${item.value}`}
+                  >
+                    <Icon
+                      kind={actionIcon(item.label)}
+                      className={styles.contactIcon}
+                    />
+                  </a>
+                ))}
+              </div>
             </div>
 
             <section className={styles.sidebarSection}>
@@ -303,6 +340,7 @@ export function PortfolioShell() {
                       href={`#${item.id}`}
                       title={item.meta}
                       aria-current={isActive ? "true" : undefined}
+                      onClick={() => setActiveSection(item.id as SectionId)}
                     >
                       <span className={styles.navLabel}>{item.label}</span>
                     </a>
@@ -331,27 +369,6 @@ export function PortfolioShell() {
             </section>
           </div>
 
-          <section className={styles.sidebarSection}>
-            <p className={styles.sectionTitle}>Contact</p>
-            <div className={styles.contactRow}>
-              {contactActions.map((item) => (
-                <a
-                  key={item.label}
-                  className={styles.contactButton}
-                  href={item.href}
-                  target={externalActionLabels.has(item.label) ? "_blank" : undefined}
-                  rel={externalActionLabels.has(item.label) ? "noreferrer" : undefined}
-                  aria-label={`${item.label}: ${item.value}`}
-                  title={`${item.label}: ${item.value}`}
-                >
-                  <Icon
-                    kind={actionIcon(item.label)}
-                    className={styles.contactIcon}
-                  />
-                </a>
-              ))}
-            </div>
-          </section>
         </div>
       </aside>
 
@@ -387,7 +404,12 @@ export function PortfolioShell() {
 
             <div className={styles.heroInner}>
               <p className={styles.eyebrow}>{profileData.hero.eyebrow}</p>
-              <h2>{profileData.hero.headline}</h2>
+              <h2 className={styles.heroTitle}>
+                <span>{profileData.hero.headlinePrefix}</span>{" "}
+                <span className={styles.heroAccent}>
+                  {profileData.hero.headlineAccent}
+                </span>
+              </h2>
 
               {profileData.hero.paragraphs.map((paragraph) => (
                 <p key={paragraph} className={styles.heroCopy}>
@@ -522,6 +544,16 @@ export function PortfolioShell() {
             </article>
 
             <article className={styles.card}>
+              <h4>{professionalPanel.title}</h4>
+              <p className={styles.detailLabel}>{professionalPanel.label}</p>
+              <ul className={styles.detailList}>
+                {professionalPanel.items.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </article>
+
+            <article className={styles.card}>
               <h4>Open Source Contributions</h4>
               <div className={styles.projectMiniGrid}>
                 {profileData.resume.additionalProjects.map((project) => (
@@ -589,20 +621,6 @@ export function PortfolioShell() {
                 ))}
               </div>
             </article>
-
-            <div className={styles.resumePanelGrid}>
-              {profileData.resume.panels.map((card) => (
-              <article key={card.title} className={styles.detailCard}>
-                <h4>{card.title}</h4>
-                <p className={styles.detailLabel}>{card.label}</p>
-                <ul className={styles.detailList}>
-                  {card.items.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-              </article>
-              ))}
-            </div>
           </div>
         </section>
 
@@ -666,9 +684,9 @@ export function PortfolioShell() {
             <article className={styles.detailCard}>
               <h4>Download Copy</h4>
               <p className={styles.sectionCopy}>
-                A formatted document version is available if you prefer a
-                shareable written copy for hiring loops, business discussions,
-                or offline review.
+                A formatted document version is available if you prefer a concise
+                written reference for interviews, hiring conversations, or
+                offline review.
               </p>
               <div className={styles.footerActions}>
                 <a

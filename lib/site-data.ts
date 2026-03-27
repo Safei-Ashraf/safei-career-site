@@ -2,9 +2,9 @@
 export const siteUrl = "https://example.com";
 export const siteName = "Safei Ashraf";
 export const seoDescription =
-  "Senior frontend engineer leading storefront, discovery, and customer-facing commerce experiences with measurable product impact.";
+  "Senior frontend engineer building customer-facing products across high-traffic commerce, client platforms, and modern frontend systems with measurable impact.";
 export const seoSummary =
-  "Senior frontend engineer focused on storefront, discovery, platform modernization, and measurable product impact across high-traffic commerce experiences.";
+  "Senior frontend engineer focused on commerce, client platforms, platform modernization, and measurable product impact across modern frontend systems.";
 export const isPlaceholderSiteUrl = /example\.com$/i.test(
   new URL(siteUrl).hostname
 );
@@ -14,7 +14,11 @@ export const profileData = {
   person: {
     name: "Safei Ashraf",
     title: "Senior Frontend Engineer",
-    meta: "Egypt · Open to relocation · Arabic, English, German"
+    meta: {
+      primary: "Based in Egypt",
+      secondary: "Open to relocation",
+      tertiary: "Native Arabic & English"
+    }
   },
   navigation: [
     {
@@ -24,13 +28,13 @@ export const profileData = {
     },
     {
       id: "resume",
-      label: "Resume",
-      meta: "Interactive experience view"
+      label: "Work & Skills",
+      meta: "Selected projects, capabilities, and experience"
     },
     {
       id: "impact",
-      label: "Selected Impact",
-      meta: "Evidence-backed highlights and outcomes"
+      label: "Impact",
+      meta: "Leadership, outcomes, and technical range"
     }
   ],
   downloads: {
@@ -43,53 +47,44 @@ export const profileData = {
     {
       label: "Email",
       meta: "Open your mail app",
-      // TODO: replace this with your preferred primary email.
-      value: "your.email@example.com",
-      // TODO: replace this with your preferred primary email.
-      href: "mailto:your.email@example.com"
+      value: "safei.ashraf@gmail.com",
+      href: "mailto:safei.ashraf@gmail.com"
     },
     {
       label: "LinkedIn",
       meta: "Open your public profile",
-      // TODO: replace this with your public LinkedIn URL.
-      value: "linkedin.com/in/your-handle",
-      // TODO: replace this with your public LinkedIn URL.
-      href: "https://www.linkedin.com/in/your-handle/"
+      value: "linkedin.com/in/safeielrahmman",
+      href: "https://www.linkedin.com/in/safeielrahmman/"
     },
     {
       label: "GitHub",
       meta: "Open your code profile",
-      // TODO: replace this with your public GitHub URL.
-      value: "github.com/your-handle",
-      // TODO: replace this with your public GitHub URL.
-      href: "https://github.com/your-handle"
+      value: "github.com/Safei-Ashraf",
+      href: "https://github.com/Safei-Ashraf"
     },
     {
       label: "Phone",
       meta: "Launch your dialer",
-      // TODO: replace this with the phone number you want to publish.
-      value: "+20 XXX XXX XXXX",
-      // TODO: replace this with the phone number you want to publish.
-      href: "tel:+201000000000"
+      value: "+201278636403",
+      href: "tel:+201278636403"
     },
     {
       label: "WhatsApp",
       meta: "Open a WhatsApp chat",
-      // TODO: replace this with the WhatsApp number you want to publish.
-      value: "+20 XXX XXX XXXX",
-      // TODO: replace this with the WhatsApp number you want to publish.
-      href: "https://wa.me/201000000000"
+      value: "+201278636403",
+      href: "https://wa.me/201278636403"
     }
   ],
   hero: {
-    eyebrow: "Profile",
-    headline: "Shaping customer journeys across high-traffic commerce experiences.",
+    eyebrow: "Senior Frontend Engineer",
+    headlinePrefix: "Shaping customer journeys across",
+    headlineAccent: "high-traffic commerce experiences.",
     paragraphs: [
-      "I'm a product-minded senior frontend engineer, currently Frontend Engineer III at noon.com, helping lead the storefront and discovery surfaces that guide how customers discover, evaluate, and engage with products.",
-      "My work spans merchandising, account experiences, and conversational shopping, with recent efforts covering engagement-driving redesigns, multi-team modernization, and frontend leadership from early MVP to production."
+      "I'm a product-minded Senior Frontend Engineer with experience spanning high-traffic commerce at noon, client platforms across Europe and the United States, and open-source contributions across product and developer-facing work.",
+      "My recent work includes discovery and merchandising experiences, account modernization, 0-to-1 product development, and frontend leadership across projects where product impact, architecture, and execution quality all matter."
     ],
     metaPills: ["Based in Egypt", "Open to relocation", "Arabic · English · German"],
-    proofChips: ["27%+ CTR uplift", "4-team modernization", "5+ years experience"],
+    proofChips: ["8 countries", "27%+ CTR uplift", "2 major rewrites"],
     ctas: [
       {
         label: "Jump to Resume",
@@ -252,7 +247,7 @@ export const profileData = {
     eyebrow: "Resume",
     title: "Selected Work & Skills",
     intro:
-      "A focused view of the product surfaces, modernization work, and public projects that best represent how I build and lead frontend experiences.",
+      "A focused view of the commerce work, client platforms, open-source contributions, and technical strengths that best represent how I build and lead frontend experiences.",
     metrics: [
       {
         value: "8 Countries",
@@ -297,7 +292,7 @@ export const profileData = {
       {
         value: "50+ Juniors",
         label:
-          "Mentored 50+ junior engineers and interns, delivered noon's internal training program more than 5 times, and also interviewed 30+ candidates while strengthening onboarding quality.",
+          "Mentored 50+ junior engineers and interns, acted as a senior or a lead mentor in noon's CAKE program for 5 cohorts, and interviewed 40+ candidates while strengthening onboarding quality.",
         icon: "users",
         bg: "rgba(244, 114, 182, 0.11)",
         border: "rgba(249, 168, 212, 0.24)",
@@ -330,7 +325,7 @@ export const profileData = {
       },
       {
         title: "Account.noon.com Modernization",
-        subtitle: "account.noon.com · Internal platform modernization",
+        subtitle: "account.noon.com · Platform modernization",
         bullets: [
           "Directed the frontend workstream across four teams while helping migrate the platform to Next.js 15, React 19, and TypeScript 5.6.",
           "Delivered work across profile, contact, validation, translations, navigation, and shared account flows.",
@@ -342,7 +337,7 @@ export const profileData = {
       },
       {
         title: "noon AI Assistant",
-        subtitle: "noon.com · Internal 0-to-1 AI product",
+        subtitle: "noon.com · 0-to-1 AI product",
         bullets: [
           "Owned the frontend from MVP to production, shaping guidance flows, validation, localization, analytics, and the customer UX.",
           "Worked in a small cross-functional team to turn an early concept into a production-ready AI shopping experience.",
@@ -597,108 +592,99 @@ export const profileData = {
     eyebrow: "Selected Impact",
     title: "Selected Impact",
     intro:
-      "Evidence-backed highlights across product impact, platform modernization, leadership scope, and team contribution.",
+      "A concise view of product impact, technical leadership, and team contribution across commerce, client platforms, and modern frontend delivery.",
     snapshot: [
       {
-        value: "2,896",
-        label: "Authored non-merge commits identified in the main commerce repository."
+        value: "8 Countries",
+        label: "Built products used across the Middle East, Europe, and the United States."
       },
       {
-        value: "229",
-        label: "Authored non-merge commits identified in the original rewrite repository."
+        value: "27%+",
+        label: "Click-through uplift driven by redesigning core product merchandising surfaces."
       },
       {
-        value: "4 teams",
-        label: "Coordinated during the account.noon.com modernization effort."
+        value: "2 Rewrites",
+        label: "Contributed to noon.com modernization and led major parts of the account.noon.com rewrite."
       },
       {
-        value: "30+",
-        label: "Candidates interviewed, plus broader mentoring and onboarding support."
+        value: "5 Cohorts",
+        label: "Served as a senior or lead mentor in noon's CAKE program while supporting broader onboarding."
       }
     ],
     summary: [
-      "I am a senior frontend engineer with broad ownership across customer-facing commerce surfaces at noon, including product discovery, product detail, search, filters, account, navigation, shared UI, and chatbot experiences across Egypt, UAE, and Saudi Arabia.",
-      "The strongest pattern in my work is not one-off feature delivery. It is sustained ownership across the full lifecycle of frontend work: product delivery, revamps, rollout cleanup, modernization, regression fixing, shared component extraction, and long-tail quality improvements.",
-      "In parallel with product work, I contributed materially to the modernization of the noon.com frontend platform and the account.noon.com stack, including work tied to the major rewrite effort and the later migration of that work into the main codebase."
+      "My experience spans high-traffic commerce at noon, client platforms across Europe and the United States, and open-source contributions across product, platform, and developer-facing work.",
+      "Across those environments, I tend to sit at the intersection of product delivery, frontend ownership, and modernization: shipping customer-facing experiences, improving UX, evolving architecture, and keeping systems maintainable over time.",
+      "That mix includes conversion-focused commerce work, large-scale rewrites, 0-to-1 product development, map and search-heavy client platforms, form-heavy workflows, and mentoring work that raises team effectiveness."
     ],
     themes: [
       {
-        title: "Improved High-Traffic Commerce UX",
+        title: "Delivered Product Impact Across Commerce and Client Platforms",
         bullets: [
           "Redesigned the product information page and product display box, contributing to a 27%+ uplift in click-through rate.",
-          "Built the Freebies feature and helped increase click-through rate from 17% to 24%.",
-          "Repeatedly delivered work across product box, ratings, tags, nudges, reviews, and similar-product experiences."
+          "Built the Freebies feature and helped increase click-through rate from 17% to 24% on noon.com.",
+          "Delivered frontend work across commerce, wealth management, recruitment, event, and real-estate platforms, including map-heavy search, multi-step forms, theming, and multilingual experiences."
         ]
       },
       {
-        title: "Drove Search, Filter, Sorting, and Navigation Quality",
+        title: "Built Search, Navigation, and Workflow Experiences",
         bullets: [
           "Delivered repeated improvements to category tree behavior, filters, sorting menus, search-result UI, empty states, facet behavior, and filter tracking.",
-          "Participated in filter revamp discussions, research, and business conversations in addition to implementation.",
-          "Improved discovery quality on surfaces where user intent, visual hierarchy, and conversion are tightly connected."
+          "Built map-driven search, multi-step forms, dashboard planning flows, and multilingual user journeys across public client platforms.",
+          "Worked on product surfaces where user intent, clarity, state management, and system behavior are tightly connected."
         ]
       },
       {
-        title: "Owned Account Modernization and Rewrite Work",
+        title: "Led Account.noon.com Modernization",
         bullets: [
-          "Took major ownership in the account modernization effort for account.noon.com.",
+          "Led major parts of the modernization effort for account.noon.com.",
           "Coordinated planning, progress tracking, coding, review, and communication across 4 teams.",
           "Delivered work across profile, contact forms, logged-out flows, validation, translations, delivery selector reliability, and shared account navigation."
         ]
       },
       {
-        title: "Contributed Materially to Frontend Platform Modernization",
+        title: "Helped Modernize Frontend Platform Foundations",
         bullets: [
-          "Contributed heavily during the rewrite period that modernized the frontend stack from older Next.js, React, TypeScript, and Yarn foundations to a newer platform on Next.js 15, React 19, TypeScript 5.6, Bun, and Turbo.",
-          "Verified 229 authored non-merge commits in the original rewrite repository across the core modernization window.",
-          "Contributed to rewrite-era themes including reviews architecture, global page setup, BNPL banner work, PLP and filter modernization, and post-migration cleanup."
+          "Helped modernize noon.com and led the rewrite of account.noon.com from older foundations toward Next.js 15, React 19, TypeScript 5.6, pnpm, and Turborepo.",
+          "Worked across rewrite-era themes including shared page setup, reviews architecture, BNPL banner work, PLP and filter modernization, and post-migration cleanup.",
+          "Balanced platform work with ongoing product delivery, rollout reliability, and maintainability improvements."
         ]
       },
       {
-        title: "Owned Frontend-Heavy Chatbot and Shared UX Flows",
+        title: "Built and Scaled noon AI Assistant",
         bullets: [
-          "Owned the frontend of the shopping chatbot from MVP through production hardening.",
-          "Helped a small cross-functional team turn an early concept into a live product with richer FAQ flows, validation, localization, analytics, and polished user experience.",
+          "Owned the frontend of noon AI Assistant from MVP through production hardening.",
+          "Helped a small cross-functional team turn an early concept into a live product with richer guidance flows, validation, localization, analytics, and polished user experience.",
           "Delivered senior-level frontend ownership spanning state, UX sequencing, content rendering, analytics, and close backend collaboration."
         ]
       },
       {
-        title: "Contributed Beyond Coding",
+        title: "Mentored and Enabled Other Engineers",
         bullets: [
           "Built onboarding documentation that reduced onboarding time by more than 50%.",
-          "Mentored over 30 interns and supported 20+ junior developers.",
-          "Interviewed approximately 30 candidates and acted as senior or lead mentor in the CAKE program 5 times."
+          "Mentored 50+ junior engineers and interns through onboarding, reviews, internal training, and day-to-day support.",
+          "Interviewed 40+ candidates and acted as a senior or a lead mentor in noon's CAKE program for 5 cohorts."
         ]
       }
     ],
     sideCards: [
       {
-        title: "Core Case",
-        label: "How the work reads at senior level",
+        title: "Leadership & Collaboration",
+        label: "How I work with teams",
         items: [
-          "Owns business-critical frontend surfaces that directly affect discovery, click-through, conversion paths, and account experience quality.",
-          "Operates effectively across product delivery, technical refactoring, modernization, rollout cleanup, and UX reliability.",
-          "Contributes beyond ticket execution through mentorship, interviewing, onboarding, code review, and cross-team coordination.",
-          "Bridges legacy and modern systems and can move between feature delivery and platform-level modernization when needed."
+          "Comfortable leading high-traffic product work at scale while also operating effectively in leaner client-delivery environments.",
+          "Coordinated cross-team delivery during account.noon.com modernization while balancing migration work with product reliability.",
+          "Invest in team growth through mentoring, onboarding improvements, interviewing, and internal training.",
+          "Work closely with product, design, QA, backend, and analytics partners to keep delivery clear and aligned."
         ]
       },
       {
-        title: "Selected Evidence",
-        label: "Repo-backed and tracked proof points",
+        title: "Technical Range",
+        label: "What I bring technically",
         items: [
-          "2,896 authored non-merge commits identified in the main commerce repository.",
-          "Approximately 85,162 lines added, 59,797 lines deleted, and 5,279 file touches in the main repository.",
-          "229 authored non-merge commits identified in the original rewrite repository.",
-          "Verified local PR trail includes chatbot-tracking, chatbot-reformed, chatbot-quickfix, account-header-revamp, refactor-misc, and multiple customer-facing fixes across account, cart, and navigation."
-        ]
-      },
-      {
-        title: "Resume-Safe Claims",
-        label: "Portable wording for interviews and docs",
-        items: [
-          "Led and contributed across high-traffic commerce surfaces on noon.com and account.noon.com, including PDP, PLP, search, cart, account, header, and chatbot experiences across Egypt, UAE, and Saudi Arabia.",
-          "Contributed materially to noon's major frontend modernization effort, helping move the stack from older foundations to a newer monorepo architecture on Next.js 15, React 19, TypeScript 5.6, Bun, and Turbo.",
-          "Drove multiple revamps and rollout follow-through efforts across account, search, header, product box, filters, and chatbot surfaces."
+          "Comfortable across modern React and Next.js product work, client delivery, platform modernization, and legacy cleanup.",
+          "Strong across UI architecture, search and map interactions, forms and validation flows, state management, accessibility, analytics, testing, and performance-minded frontend delivery.",
+          "Built and scaled 0-to-1 customer-facing experiences like noon AI Assistant while also contributing to open source across docs, testing, and frontend tooling.",
+          "Use AI-assisted workflows to accelerate debugging, implementation, and documentation without sacrificing quality."
         ]
       }
     ]
