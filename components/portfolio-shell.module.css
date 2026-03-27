@@ -228,15 +228,13 @@
   border: 1px solid rgba(255, 255, 255, 0.07);
   border-radius: 20px;
   background: linear-gradient(180deg, rgba(31, 32, 36, 0.95), rgba(21, 22, 25, 0.98));
-  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+  transition: border-color 180ms ease, background 180ms ease;
 }
 
 .card:hover,
-.metricCard:hover,
 .detailCard:hover,
 .resumeCard:hover,
 .impactCard:hover {
-  transform: translateY(-2px);
   border-color: rgba(255, 255, 255, 0.11);
   background: linear-gradient(180deg, rgba(35, 36, 40, 0.96), rgba(23, 24, 27, 0.99));
 }
@@ -357,7 +355,7 @@
   position: absolute;
   inset: 0;
   pointer-events: none;
-  --chip-cloud-offset-x: 24px;
+  --chip-cloud-offset-x: 36px;
 }
 
 .skillChip {
@@ -413,8 +411,8 @@
 
 .showcaseMetricGrid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
 }
 
 .metricCard {
@@ -422,9 +420,16 @@
 }
 
 .showcaseMetricCard {
-  padding: 16px;
+  padding: 15px;
   background: var(--metric-bg, rgba(255, 255, 255, 0.03));
   border-color: var(--metric-border, rgba(255, 255, 255, 0.08));
+  transition: none;
+}
+
+.showcaseMetricCard:hover {
+  transform: none;
+  border-color: var(--metric-border, rgba(255, 255, 255, 0.08));
+  background: var(--metric-bg, rgba(255, 255, 255, 0.03));
 }
 
 .showcaseMetricHeader {
@@ -438,32 +443,37 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 38px;
-  height: 38px;
+  width: 42px;
+  height: 42px;
   border-radius: 12px;
   background: var(--metric-icon-bg, rgba(255, 255, 255, 0.08));
   color: var(--metric-icon-color, #f4f5f6);
   flex: 0 0 auto;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 10px 24px rgba(0, 0, 0, 0.16);
 }
 
 .metricIcon {
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
+  stroke-width: 2;
 }
 
 .showcaseMetricValue {
   margin: 0;
-  font-size: 1.45rem;
-  line-height: 0.95;
+  font-size: clamp(1.1rem, 1.5vw, 1.3rem);
+  line-height: 1.02;
   font-weight: 700;
   letter-spacing: -0.03em;
+  text-align: right;
 }
 
 .showcaseMetricLabel {
-  margin: 12px 0 0;
-  color: #d2d6dc;
-  font-size: 0.89rem;
-  line-height: 1.52;
+  margin: 11px 0 0;
+  color: #d7dce3;
+  font-size: 0.85rem;
+  line-height: 1.48;
 }
 
 .metricValue {
@@ -527,12 +537,11 @@
   border: 1px solid rgba(255, 255, 255, 0.07);
   border-radius: 18px;
   background: rgba(255, 255, 255, 0.02);
-  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+  transition: border-color 180ms ease, background 180ms ease;
 }
 
 .projectCard:hover,
 .projectMiniCard:hover {
-  transform: translateY(-2px);
   border-color: rgba(255, 255, 255, 0.11);
   background: rgba(255, 255, 255, 0.04);
 }
@@ -571,6 +580,13 @@
   gap: 14px;
 }
 
+.projectActions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
 .projectSubtitle {
   margin: 6px 0 0;
   color: #8a8f97;
@@ -589,6 +605,7 @@
   color: #d2d6dc;
   font-size: 0.84rem;
   font-weight: 600;
+  text-transform: capitalize;
   white-space: nowrap;
   transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
 }
@@ -655,9 +672,40 @@
 }
 
 .skillGroup {
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  border: 1px solid var(--skill-border, rgba(255, 255, 255, 0.07));
   border-radius: 16px;
-  background: rgba(255, 255, 255, 0.02);
+  background:
+    linear-gradient(180deg, var(--skill-bg, rgba(255, 255, 255, 0.02)), rgba(255, 255, 255, 0.015)),
+    rgba(255, 255, 255, 0.02);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.skillGroupTitle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+  color: var(--skill-title, #f4f5f6);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.skillGroupIcon {
+  width: 15px;
+  height: 15px;
+  color: var(--skill-title, #f4f5f6);
+  opacity: 0.82;
+  flex: 0 0 auto;
+}
+
+.skillGroupPills {
+  gap: 12px;
+}
+
+.skillGroup .resumePill {
+  background: var(--skill-pill-bg, rgba(255, 255, 255, 0.03));
+  border-color: var(--skill-pill-border, rgba(255, 255, 255, 0.11));
+  color: var(--skill-pill-text, #c2c6cd);
 }
 
 .impactHeading {

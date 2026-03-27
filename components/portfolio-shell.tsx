@@ -22,7 +22,14 @@ function Icon({
     | "trend"
     | "layers"
     | "message"
-    | "users";
+    | "users"
+    | "network"
+    | "assistant"
+    | "globe"
+    | "code"
+    | "palette"
+    | "stack"
+    | "tooling";
   className?: string;
 }) {
   const shared = {
@@ -120,6 +127,68 @@ function Icon({
           <circle cx="9.5" cy="7" r="3.5" />
           <path d="M22 21v-2a4 4 0 0 0-3-3.86" />
           <path d="M16 3.14a3.5 3.5 0 0 1 0 6.72" />
+        </svg>
+      );
+    case "network":
+      return (
+        <svg {...shared}>
+          <circle cx="6" cy="8" r="2.25" />
+          <circle cx="18" cy="6" r="2.25" />
+          <circle cx="12" cy="18" r="2.25" />
+          <path d="M8 8.6 15.8 6.8" />
+          <path d="m7.5 9.8 3.8 6.1" />
+          <path d="M16.5 8 13.5 15.2" />
+        </svg>
+      );
+    case "assistant":
+      return (
+        <svg {...shared}>
+          <path d="M20 11.5a7.5 7.5 0 0 1-7.5 7.5c-1.2 0-2.3-.2-3.4-.7L4 19l.8-4.1A7.5 7.5 0 1 1 20 11.5Z" />
+          <path d="M9 11.5h6" />
+          <path d="M9.5 8.8h5" />
+          <path d="M17.8 4.8v2.4" />
+          <path d="M16.6 6h2.4" />
+        </svg>
+      );
+    case "globe":
+      return (
+        <svg {...shared}>
+          <circle cx="12" cy="12" r="8.5" />
+          <path d="M3.8 12h16.4" />
+          <path d="M12 3.5a12.7 12.7 0 0 1 3 8.5 12.7 12.7 0 0 1-3 8.5 12.7 12.7 0 0 1-3-8.5 12.7 12.7 0 0 1 3-8.5Z" />
+        </svg>
+      );
+    case "code":
+      return (
+        <svg {...shared}>
+          <path d="m9 8-4 4 4 4" />
+          <path d="m15 8 4 4-4 4" />
+        </svg>
+      );
+    case "palette":
+      return (
+        <svg {...shared}>
+          <path d="M12 4.5c-4.7 0-8.5 3.4-8.5 7.6 0 3.8 3.1 7 7.2 7h1.1c1.2 0 2-.9 2-1.9 0-.5-.2-.9-.4-1.3-.2-.3-.3-.6-.3-1 0-1.1.9-1.8 2-1.8h1.5c2.9 0 5.4-2.2 5.4-5.1 0-4.2-4-7.5-9-7.5Z" />
+          <circle cx="8" cy="11" r="1" fill="currentColor" stroke="none" />
+          <circle cx="11" cy="8.5" r="1" fill="currentColor" stroke="none" />
+          <circle cx="15" cy="9" r="1" fill="currentColor" stroke="none" />
+        </svg>
+      );
+    case "stack":
+      return (
+        <svg {...shared}>
+          <path d="m12 4 7 3.5-7 3.5-7-3.5L12 4Z" />
+          <path d="m5 12 7 3.5 7-3.5" />
+          <path d="m5 16.5 7 3.5 7-3.5" />
+        </svg>
+      );
+    case "tooling":
+      return (
+        <svg {...shared}>
+          <rect x="4.5" y="4.5" width="15" height="15" rx="3" />
+          <path d="M9 9h.01" />
+          <path d="M15 9h.01" />
+          <path d="M8.5 14.5c.8 1.1 2 1.7 3.5 1.7s2.7-.6 3.5-1.7" />
         </svg>
       );
     default:
@@ -405,17 +474,34 @@ export function PortfolioShell() {
                         <p className={styles.projectSubtitle}>{project.subtitle}</p>
                       </div>
                       {"href" in project && project.href ? (
-                        <a
-                          className={styles.projectLink}
-                          href={project.href}
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          <span>
-                            {"linkLabel" in project ? project.linkLabel : "View project"}
-                          </span>
-                          <Icon kind="external" className={styles.projectLinkIcon} />
-                        </a>
+                        <div className={styles.projectActions}>
+                          <a
+                            className={styles.projectLink}
+                            href={project.href}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            <span>
+                              {"linkLabel" in project ? project.linkLabel : "View project"}
+                            </span>
+                            <Icon kind="external" className={styles.projectLinkIcon} />
+                          </a>
+                          {"secondaryHref" in project && project.secondaryHref ? (
+                            <a
+                              className={styles.projectLink}
+                              href={project.secondaryHref}
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              <span>
+                                {"secondaryLabel" in project
+                                  ? project.secondaryLabel
+                                  : "View reference"}
+                              </span>
+                              <Icon kind="external" className={styles.projectLinkIcon} />
+                            </a>
+                          ) : null}
+                        </div>
                       ) : null}
                     </div>
                     <ul className={styles.experienceList}>
@@ -436,14 +522,13 @@ export function PortfolioShell() {
             </article>
 
             <article className={styles.card}>
-              <h4>Additional Public Work</h4>
+              <h4>Open Source Contributions</h4>
               <div className={styles.projectMiniGrid}>
                 {profileData.resume.additionalProjects.map((project) => (
                   <section key={project.title} className={styles.projectMiniCard}>
                     <div className={styles.projectHeader}>
                       <div>
                         <h5 className={styles.resumeTitle}>{project.title}</h5>
-                        <p className={styles.projectSubtitle}>{project.subtitle}</p>
                       </div>
                       <a
                         className={styles.projectLink}
@@ -451,7 +536,7 @@ export function PortfolioShell() {
                         target="_blank"
                         rel="noreferrer"
                       >
-                        <span>{project.linkLabel}</span>
+                        <span>Open Source Contributions</span>
                         <Icon kind="external" className={styles.projectLinkIcon} />
                       </a>
                     </div>
@@ -472,9 +557,28 @@ export function PortfolioShell() {
               <h4>Skill Clusters</h4>
               <div className={styles.detailStack}>
                 {profileData.resume.skillGroups.map((group) => (
-                  <section key={group.title} className={styles.skillGroup}>
-                    <p className={styles.detailLabel}>{group.title}</p>
-                    <div className={styles.pillGroup}>
+                  <section
+                    key={group.title}
+                    className={styles.skillGroup}
+                    style={
+                      {
+                        "--skill-bg": group.bg,
+                        "--skill-border": group.border,
+                        "--skill-title": group.titleColor,
+                        "--skill-pill-bg": group.pillBg,
+                        "--skill-pill-border": group.pillBorder,
+                        "--skill-pill-text": group.pillText
+                      } as CSSProperties
+                    }
+                  >
+                    <p className={`${styles.detailLabel} ${styles.skillGroupTitle}`}>
+                      <Icon
+                        kind={group.icon}
+                        className={styles.skillGroupIcon}
+                      />
+                      {group.title}
+                    </p>
+                    <div className={`${styles.pillGroup} ${styles.skillGroupPills}`}>
                       {group.items.map((item) => (
                         <span key={item} className={styles.resumePill}>
                           {item}

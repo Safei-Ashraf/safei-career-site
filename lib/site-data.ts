@@ -252,12 +252,32 @@ export const profileData = {
     eyebrow: "Resume",
     title: "Selected Work & Skills",
     intro:
-      "A curated selection of product surfaces, public projects, and technical strengths that reflect how I build, lead, and ship frontend work.",
+      "A focused view of the product surfaces, modernization work, and public projects that best represent how I build and lead frontend experiences.",
     metrics: [
       {
-        value: "27%+",
+        value: "8 Countries",
         label:
-          "Click-through uplift driven by redesigning core product discovery surfaces and merchandising hierarchy at noon.com.",
+          "Built customer-facing products across 8 countries, from noon.com's high-traffic commerce experiences in Egypt, UAE, and Saudi Arabia to public platforms delivered across Europe and the United States.",
+        icon: "globe",
+        bg: "rgba(245, 158, 11, 0.11)",
+        border: "rgba(252, 211, 77, 0.24)",
+        iconBg: "rgba(245, 158, 11, 0.16)",
+        iconColor: "#fcd34d"
+      },
+      {
+        value: "0 → 1",
+        label:
+          "Owned the frontend of noon AI Assistant from early MVP to a production-ready customer experience with richer guidance, validation, localization, and analytics.",
+        icon: "assistant",
+        bg: "rgba(167, 139, 250, 0.11)",
+        border: "rgba(196, 181, 253, 0.24)",
+        iconBg: "rgba(167, 139, 250, 0.16)",
+        iconColor: "#c4b5fd"
+      },
+      {
+        value: "27%+ CTR",
+        label:
+          "Click-through uplift driven by redesigning core product discovery surfaces and merchandising hierarchy on noon.com.",
         icon: "trend",
         bg: "rgba(52, 211, 153, 0.11)",
         border: "rgba(110, 231, 183, 0.24)",
@@ -265,46 +285,48 @@ export const profileData = {
         iconColor: "#6ee7b7"
       },
       {
-        value: "4 Teams",
+        value: "2 Rewrites",
         label:
-          "Directed the frontend modernization of account.noon.com across four teams on Next.js 15, React 19, and scalable shared-state patterns.",
-        icon: "layers",
+          "Helped modernize noon.com and led the rewrite of account.noon.com, moving key surfaces onto Next.js 15, React 19, TypeScript 5.6, pnpm, and Turborepo foundations.",
+        icon: "network",
         bg: "rgba(96, 165, 250, 0.11)",
         border: "rgba(147, 197, 253, 0.24)",
         iconBg: "rgba(96, 165, 250, 0.16)",
         iconColor: "#93c5fd"
       },
       {
-        value: "0 → 1",
+        value: "50+ Juniors",
         label:
-          "Owned the frontend of noon's shopping chatbot from early MVP into a live production-ready product.",
-        icon: "message",
-        bg: "rgba(167, 139, 250, 0.11)",
-        border: "rgba(196, 181, 253, 0.24)",
-        iconBg: "rgba(167, 139, 250, 0.16)",
-        iconColor: "#c4b5fd"
+          "Mentored 50+ junior engineers and interns, delivered noon's internal training program more than 5 times, and also interviewed 30+ candidates while strengthening onboarding quality.",
+        icon: "users",
+        bg: "rgba(244, 114, 182, 0.11)",
+        border: "rgba(249, 168, 212, 0.24)",
+        iconBg: "rgba(244, 114, 182, 0.16)",
+        iconColor: "#f9a8d4"
       },
       {
-        value: "50%+",
+        value: "4 Teams",
         label:
-          "Reduced developer ramp-up time by improving onboarding documentation and supporting 20+ junior engineers and interns.",
-        icon: "users",
-        bg: "rgba(245, 158, 11, 0.11)",
-        border: "rgba(252, 211, 77, 0.24)",
-        iconBg: "rgba(245, 158, 11, 0.16)",
-        iconColor: "#fcd34d"
+          "Led the frontend workstream across four teams during account.noon.com modernization, aligning migration delivery, rollout quality, and shared frontend patterns.",
+        icon: "layers",
+        bg: "rgba(251, 146, 60, 0.11)",
+        border: "rgba(253, 186, 116, 0.24)",
+        iconBg: "rgba(251, 146, 60, 0.16)",
+        iconColor: "#fdba74"
       }
     ],
     featuredProjects: [
       {
-        title: "Storefront & Discovery",
-        subtitle: "noon.com · Internal product surface",
+        title: "Storefront & Discovery Leadership",
+        subtitle: "noon.com · Core commerce surface",
         bullets: [
-          "Help lead the customer journey across discovery surfaces that shape how customers find, evaluate, and engage with products.",
-          "Delivered repeated improvements across PDP, PLP, filters, sorting, category tree, product box, reviews, and merchandising flows.",
-          "Worked close to conversion-facing UX where clarity, performance, and experimentation directly affect business outcomes."
+          "Help lead the discovery journey across search, PLP, PDP, merchandising, and navigation surfaces that influence how customers browse and evaluate products.",
+          "Delivered repeated improvements across filters, sorting, category tree, product box, reviews, and experimentation-heavy product surfaces.",
+          "Worked close to conversion-facing UX where clarity, performance, and visual hierarchy directly affect business outcomes."
         ],
-        tags: ["Next.js", "React", "TypeScript", "Analytics", "Experimentation"]
+        tags: ["Next.js", "React", "TypeScript", "Analytics", "Performance", "Experimentation"],
+        href: "https://www.noon.com/",
+        linkLabel: "View site"
       },
       {
         title: "Account.noon.com Modernization",
@@ -314,17 +336,19 @@ export const profileData = {
           "Delivered work across profile, contact, validation, translations, navigation, and shared account flows.",
           "Balanced migration work with product correctness, rollout follow-through, and maintainability improvements."
         ],
-        tags: ["Next.js 15", "React 19", "TypeScript", "Forms", "Cross-team Delivery"]
+        tags: ["Next.js 15", "React 19", "TypeScript", "Forms", "Localization", "Cross-team Delivery"],
+        href: "https://account.noon.com/",
+        linkLabel: "View site"
       },
       {
-        title: "Shopping Chatbot",
-        subtitle: "noon.com · Internal 0-to-1 product",
+        title: "noon AI Assistant",
+        subtitle: "noon.com · Internal 0-to-1 AI product",
         bullets: [
-          "Owned the frontend from MVP to production, shaping FAQ flows, validation, localization, analytics, and the customer UX.",
-          "Worked in a small cross-functional team to turn an early concept into a production-ready conversational shopping experience.",
-          "Handled stateful interactions and UI sequencing across fast-moving iterations."
+          "Owned the frontend from MVP to production, shaping guidance flows, validation, localization, analytics, and the customer UX.",
+          "Worked in a small cross-functional team to turn an early concept into a production-ready AI shopping experience.",
+          "Handled stateful interactions and UI sequencing across fast-moving iterations and feature expansion."
         ],
-        tags: ["Product Ownership", "Analytics", "Localization", "State Management", "UX"]
+        tags: ["AI Product", "Analytics", "Localization", "Validation", "State Management", "UX"]
       },
       {
         title: "McMakler Real Estate Search & Map Visualisation",
@@ -334,9 +358,12 @@ export const profileData = {
           "Improved map-driven search accuracy and interaction between map state and property data visualisation.",
           "Extended the internal component library with tests, refactors, and new reusable pieces."
         ],
-        tags: ["React", "Next.js", "GraphQL", "Mapbox", "Emotion"],
+        tags: ["React", "Next.js", "GraphQL", "Mapbox", "Emotion", "Component Library"],
         href: "https://www.mcmakler.de/immobilien",
-        linkLabel: "View project"
+        linkLabel: "View project",
+        // TODO: replace this with the published Google Docs URL of your recommendation letter.
+        secondaryHref: "https://docs.google.com/document/d/YOUR_RECOMMENDATION_DOC_ID/edit",
+        secondaryLabel: "View recommendation letter"
       },
       {
         title: "FINVIA Wealth Management Platform",
@@ -346,7 +373,7 @@ export const profileData = {
           "Established theming foundations and responsive layouts with cross-browser reliability.",
           "Helped keep quality high through unit tests, Storybook coverage, and end-to-end validation."
         ],
-        tags: ["React", "TypeScript", "GraphQL", "React Hook Form", "Material UI"],
+        tags: ["React", "TypeScript", "GraphQL", "i18n", "React Hook Form", "Material UI"],
         href: "https://www.finvia.fo/",
         linkLabel: "View project"
       },
@@ -361,27 +388,33 @@ export const profileData = {
         tags: ["Salesforce", "LWC", "CSS", "JavaScript", "Figma"],
         href: "https://shop.modelgroup.com/s/",
         linkLabel: "View project"
-      }
-    ],
-    additionalProjects: [
+      },
       {
         title: "Fair and Simple Recruitment Platform",
-        subtitle: "Public client work",
-        description:
-          "Built UI, integrated Google Drive API, handled theming, and supported code review.",
-        tags: ["React", "GraphQL", "Styled Components"],
+        subtitle: "Fair and Simple · Public client work",
+        bullets: [
+          "Built frontend UI flows, integrated Google Drive API behavior, and supported theming across the recruitment platform.",
+          "Contributed through implementation and code review while helping keep the product consistent and usable.",
+          "Worked across product polish and technical integration in a smaller delivery environment."
+        ],
+        tags: ["React", "GraphQL", "Google Drive API", "Styled Components"],
         href: "https://fairandsimple.io/",
         linkLabel: "View site"
       },
       {
         title: "K.I.T. Group Event System",
-        subtitle: "Public client work",
-        description:
-          "Built multi-step reservation flows and improved dashboard planning UX with drag-and-drop behavior.",
-        tags: ["React", "GraphQL", "Multi-step Forms"],
+        subtitle: "K.I.T. Group · Public client work",
+        bullets: [
+          "Built multi-step reservation flows and dashboard planning experiences for event operations.",
+          "Improved planning UX with drag-and-drop behavior and more reliable user flows.",
+          "Worked on product surfaces that balanced complex state, usability, and operational clarity."
+        ],
+        tags: ["React", "GraphQL", "Drag and Drop", "Multi-step Forms"],
         href: "https://www.kit-group.org/",
         linkLabel: "View site"
-      },
+      }
+    ],
+    additionalProjects: [
       {
         title: "Mozilla Perfcompare",
         subtitle: "Open source contribution",
@@ -389,7 +422,7 @@ export const profileData = {
           "Improved accessibility, tests, and CI stability for Mozilla's performance comparison tool.",
         tags: ["React", "Redux", "TypeScript", "Jest"],
         href: "https://github.com/mozilla/perfcompare",
-        linkLabel: "View project"
+        linkLabel: "Open Source Contributions"
       },
       {
         title: "TypeScript Website Docs",
@@ -398,7 +431,7 @@ export const profileData = {
           "Improved clarity and readability in the official docs through a contribution to the TypeScript Website.",
         tags: ["TypeScript", "Markdown", "Docs"],
         href: "https://github.com/microsoft/TypeScript-Website/pull/269",
-        linkLabel: "View contribution"
+        linkLabel: "Open Source Contributions"
       },
       {
         title: "Egghead Course Notes",
@@ -407,7 +440,7 @@ export const profileData = {
           "Expanded and refined React course notes with clearer explanations of core concepts.",
         tags: ["React", "Docs", "Education"],
         href: "https://github.com/eggheadio/eggheadio-course-notes/pull/66",
-        linkLabel: "View contribution"
+        linkLabel: "Open Source Contributions"
       },
       {
         title: "Outside-In FE Development TDD",
@@ -416,15 +449,42 @@ export const profileData = {
           "Fixed failing Cypress builds and updated dependencies so the demo project built successfully again.",
         tags: ["Cypress", "Tooling", "Debugging"],
         href: "https://outsidein.dev",
-        linkLabel: "View project"
+        linkLabel: "Open Source Contributions"
       }
     ],
     skillGroups: [
       {
+        icon: "code",
+        bg: "rgba(56, 189, 248, 0.045)",
+        border: "rgba(125, 211, 252, 0.12)",
+        titleColor: "#bfddee",
+        pillBg: "rgba(56, 189, 248, 0.05)",
+        pillBorder: "rgba(125, 211, 252, 0.11)",
+        pillText: "#d4eaf5",
         title: "Frontend",
-        items: ["React", "Next.js", "TypeScript", "JavaScript", "React Hooks", "React Router"]
+        items: [
+          "React",
+          "Next.js",
+          "TanStack Start",
+          "TypeScript",
+          "JavaScript",
+          "React Hooks",
+          "React Router",
+          "React Hook Form",
+          "TanStack Query",
+          "Forms",
+          "Accessibility",
+          "Performance Optimization"
+        ]
       },
       {
+        icon: "palette",
+        bg: "rgba(244, 114, 182, 0.045)",
+        border: "rgba(249, 168, 212, 0.12)",
+        titleColor: "#eed0dd",
+        pillBg: "rgba(244, 114, 182, 0.05)",
+        pillBorder: "rgba(249, 168, 212, 0.11)",
+        pillText: "#f2dde6",
         title: "Styling & UI",
         items: [
           "HTML5",
@@ -435,37 +495,78 @@ export const profileData = {
           "Styled Components",
           "Emotion",
           "Material UI",
-          "Accessibility",
           "Figma"
         ]
       },
       {
+        icon: "stack",
+        bg: "rgba(52, 211, 153, 0.045)",
+        border: "rgba(110, 231, 183, 0.12)",
+        titleColor: "#c8ebdf",
+        pillBg: "rgba(52, 211, 153, 0.05)",
+        pillBorder: "rgba(110, 231, 183, 0.11)",
+        pillText: "#daefe6",
         title: "State, Data & Quality",
         items: [
           "Zustand",
           "Redux",
-          "GraphQL",
           "Apollo Client",
           "Jest",
           "React Testing Library",
           "Cypress",
+          "Playwright",
           "Storybook",
           "Chromatic"
         ]
       },
       {
+        icon: "tooling",
+        bg: "rgba(167, 139, 250, 0.045)",
+        border: "rgba(196, 181, 253, 0.12)",
+        titleColor: "#ddd6f4",
+        pillBg: "rgba(167, 139, 250, 0.05)",
+        pillBorder: "rgba(196, 181, 253, 0.11)",
+        pillText: "#ebe7f6",
         title: "Tooling & AI",
         items: [
           "Git",
           "npm",
+          "pnpm",
           "Yarn",
           "Bun",
           "Turbo",
+          "Vite",
           "Webpack",
+          "Husky",
           "ESLint",
+          "Biome.js",
+          "Shell Scripting",
+          "Documentation",
           "Codex",
           "Claude",
           "Cursor"
+        ]
+      },
+      {
+        icon: "globe",
+        bg: "rgba(245, 158, 11, 0.045)",
+        border: "rgba(252, 211, 77, 0.12)",
+        titleColor: "#ead9b3",
+        pillBg: "rgba(245, 158, 11, 0.05)",
+        pillBorder: "rgba(252, 211, 77, 0.11)",
+        pillText: "#efe2c7",
+        title: "Additional Exposure",
+        items: [
+          "Azure",
+          "React Native",
+          "Salesforce",
+          "LWC",
+          "Python",
+          "Flask",
+          "SQL",
+          "Vue.js",
+          "Node.js",
+          "Express"
         ]
       }
     ],
@@ -607,6 +708,7 @@ export const profileData = {
 export const publicProfileLinks = profileData.contactActions
   .filter((item) => item.label === "LinkedIn" || item.label === "GitHub")
   .map((item) => item.href)
+  // TODO: keep this placeholder exclusion list in sync until all public links and document URLs are replaced.
   .filter(
     (href) =>
       href.startsWith("http") &&
