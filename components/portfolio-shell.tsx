@@ -215,13 +215,23 @@ function actionIcon(
   }
 }
 
+function isExternalHref(href: string) {
+  return /^https?:\/\//i.test(href);
+}
+
+function getLinkTargetProps(href: string) {
+  if (!isExternalHref(href)) {
+    return {};
+  }
+
+  return {
+    target: "_blank" as const,
+    rel: "noopener noreferrer"
+  };
+}
+
 export function PortfolioShell() {
   const [activeSection, setActiveSection] = useState<SectionId>("overview");
-
-  const externalActionLabels = useMemo(
-    () => new Set(["LinkedIn", "GitHub", "WhatsApp"]),
-    []
-  );
 
   const professionalPanel = useMemo(
     () =>
@@ -313,8 +323,7 @@ export function PortfolioShell() {
                     key={item.label}
                     className={styles.contactButton}
                     href={item.href}
-                    target={externalActionLabels.has(item.label) ? "_blank" : undefined}
-                    rel={externalActionLabels.has(item.label) ? "noreferrer" : undefined}
+                    {...getLinkTargetProps(item.href)}
                     aria-label={`${item.label}: ${item.value}`}
                     title={`${item.label}: ${item.value}`}
                   >
@@ -352,15 +361,18 @@ export function PortfolioShell() {
             <section className={styles.sidebarSection}>
               <p className={styles.sectionTitle}>Resume Actions</p>
               <div className={styles.docActions}>
-                <a className={styles.docAction} href={profileData.downloads.resume}>
+                <a
+                  className={styles.docAction}
+                  href={profileData.downloads.resume}
+                  {...getLinkTargetProps(profileData.downloads.resume)}
+                >
                   <Icon kind="download" className={styles.icon} />
                   <span>Download Resume</span>
                 </a>
                 <a
                   className={styles.docAction}
                   href={profileData.downloads.resumeGoogleDocs}
-                  target="_blank"
-                  rel="noreferrer"
+                  {...getLinkTargetProps(profileData.downloads.resumeGoogleDocs)}
                 >
                   <Icon kind="external" className={styles.icon} />
                   <span>View in Google Docs</span>
@@ -443,6 +455,7 @@ export function PortfolioShell() {
                         : styles.ghostButton
                     }
                     href={cta.href}
+                    {...getLinkTargetProps(cta.href)}
                   >
                     {cta.label}
                   </a>
@@ -500,8 +513,7 @@ export function PortfolioShell() {
                           <a
                             className={styles.projectLink}
                             href={project.href}
-                            target="_blank"
-                            rel="noreferrer"
+                            {...getLinkTargetProps(project.href)}
                           >
                             <span>
                               {"linkLabel" in project ? project.linkLabel : "View project"}
@@ -512,8 +524,7 @@ export function PortfolioShell() {
                             <a
                               className={styles.projectLink}
                               href={project.secondaryHref}
-                              target="_blank"
-                              rel="noreferrer"
+                              {...getLinkTargetProps(project.secondaryHref)}
                             >
                               <span>
                                 {"secondaryLabel" in project
@@ -565,8 +576,7 @@ export function PortfolioShell() {
                       <a
                         className={styles.projectLink}
                         href={project.href}
-                        target="_blank"
-                        rel="noreferrer"
+                        {...getLinkTargetProps(project.href)}
                       >
                         <span>Open Source Contributions</span>
                         <Icon kind="external" className={styles.projectLinkIcon} />
@@ -692,8 +702,9 @@ export function PortfolioShell() {
                 <a
                   className={styles.primaryButton}
                   href={profileData.downloads.impactReference}
+                  {...getLinkTargetProps(profileData.downloads.impactReference)}
                 >
-                  Download Impact Reference
+                  View Impact Reference
                 </a>
               </div>
             </article>

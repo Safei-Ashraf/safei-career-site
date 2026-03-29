@@ -1,4 +1,4 @@
-export const siteUrl = "https://safeiashraf.netlify.app/";
+export const siteUrl = "https://safei-ashraf.netlify.app/";
 export const siteName = "Safei Ashraf";
 export const seoDescription =
   "Senior frontend engineer building customer-facing products across high-traffic commerce, client platforms, and modern frontend systems with measurable impact.";
