@@ -9,6 +9,8 @@ export const size = {
 export const contentType = "image/png";
 
 export default function OpenGraphImage() {
+  const heroHeadline = `${profileData.hero.headlinePrefix} ${profileData.hero.headlineAccent}`.trim();
+
   return new ImageResponse(
     (
       <div
@@ -64,7 +66,7 @@ export default function OpenGraphImage() {
                 letterSpacing: "-0.05em"
               }}
             >
-              {profileData.hero.headline}
+              {heroHeadline}
             </div>
             <div
               style={{
