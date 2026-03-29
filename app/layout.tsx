@@ -19,6 +19,15 @@ export const metadata: Metadata = {
   description: seoDescription,
   applicationName: `${siteName} Career Site`,
   manifest: "/manifest.webmanifest",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" }
+    ],
+    shortcut: ["/favicon.ico"],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }]
+  },
   authors: [{ name: profileData.person.name }],
   creator: profileData.person.name,
   publisher: profileData.person.name,
