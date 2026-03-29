@@ -1,5 +1,4 @@
-// TODO: replace this with your production domain when the site is deployed.
-export const siteUrl = "https://example.com";
+export const siteUrl = "https://safeiashraf.netlify.app/";
 export const siteName = "Safei Ashraf";
 export const seoDescription =
   "Senior frontend engineer building customer-facing products across high-traffic commerce, client platforms, and modern frontend systems with measurable impact.";
@@ -38,10 +37,12 @@ export const profileData = {
     }
   ],
   downloads: {
-    resume: "/docs/Safei_Ashraf_Frontend_Engineer_hybrid_gdocs.docx",
-    impactReference: "/docs/Safei_Ashraf_Impact_Reference.docx",
-    // TODO: replace this with the published Google Docs URL of your resume.
-    resumeGoogleDocs: "https://docs.google.com/document/d/YOUR_DOC_ID/edit"
+    resume:
+      "https://drive.google.com/file/d/124gUZ6Fk3JCfKzFuvJHOgXkOrFXTlecv/view?usp=sharing",
+    impactReference:
+      "https://docs.google.com/document/d/e/2PACX-1vSRLRXQ91NvpxR9BkHjn5hpeYOkXLDc3dfqZt4gxYK8kQbPoQcbNJjQe3oS64w0EsVBOtInavYUjmxE/pub",
+    resumeGoogleDocs:
+      "https://docs.google.com/document/d/13IdAQYHKl6LmghHzgqXTfBzct7PyBbjiJrwizl0Hvmw/edit?usp=sharing"
   },
   contactActions: [
     {
@@ -356,8 +357,8 @@ export const profileData = {
         tags: ["React", "Next.js", "GraphQL", "Mapbox", "Emotion", "Component Library"],
         href: "https://www.mcmakler.de/immobilien",
         linkLabel: "View project",
-        // TODO: replace this with the published Google Docs URL of your recommendation letter.
-        secondaryHref: "https://docs.google.com/document/d/YOUR_RECOMMENDATION_DOC_ID/edit",
+        secondaryHref:
+          "https://docs.google.com/document/d/1CGPe2CWCCFWbT9TdLu41za8mDhu0_sRGaugOst9SQQs/edit?usp=sharing",
         secondaryLabel: "View recommendation letter"
       },
       {
@@ -694,10 +695,8 @@ export const profileData = {
 export const publicProfileLinks = profileData.contactActions
   .filter((item) => item.label === "LinkedIn" || item.label === "GitHub")
   .map((item) => item.href)
-  // TODO: keep this placeholder exclusion list in sync until all public links and document URLs are replaced.
   .filter(
     (href) =>
       href.startsWith("http") &&
-      !href.includes("your-handle") &&
-      !href.includes("YOUR_DOC_ID")
+      !href.includes("your-handle")
   );
