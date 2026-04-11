@@ -7,9 +7,9 @@
   grid-template-columns: 268px minmax(0, 1fr);
   gap: 18px;
   width: 100%;
-  max-width: none;
-  margin: 0;
-  padding: 16px 20px 16px 16px;
+  max-width: 1512px;
+  margin: 0 auto;
+  padding: 16px;
 }
 
 .sidebar {
@@ -526,6 +526,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 12px;
+  min-width: 0;
 }
 
 .metricIconBadge {
@@ -556,6 +557,7 @@
   font-weight: 700;
   letter-spacing: -0.03em;
   text-align: right;
+  min-width: 0;
 }
 
 .showcaseMetricLabel {
@@ -667,6 +669,13 @@
   align-items: flex-start;
   justify-content: space-between;
   gap: 14px;
+  min-width: 0;
+  flex-wrap: wrap;
+}
+
+.projectHeader > div {
+  min-width: 0;
+  flex: 1 1 220px;
 }
 
 .projectActions {
@@ -674,6 +683,7 @@
   flex-wrap: wrap;
   justify-content: flex-end;
   gap: 8px;
+  max-width: 100%;
 }
 
 .projectSubtitle {
@@ -695,8 +705,10 @@
   font-size: 0.84rem;
   font-weight: 600;
   text-transform: capitalize;
-  white-space: nowrap;
+  white-space: normal;
   transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+  max-width: 100%;
+  text-align: left;
 }
 
 .projectLink:hover {
@@ -924,5 +936,147 @@
 
   .skillChip {
     display: none;
+  }
+
+  .showcaseMetricHeader {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .showcaseMetricValue {
+    text-align: left;
+  }
+
+  .projectHeader {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .projectHeader > div,
+  .projectActions,
+  .projectHeader > .projectLink {
+    width: 100%;
+    flex-basis: auto;
+  }
+
+  .projectActions {
+    justify-content: flex-start;
+  }
+
+  .projectActions .projectLink,
+  .projectHeader > .projectLink {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .projectLink span {
+    min-width: 0;
+  }
+
+  .skillGroupTitle {
+    align-items: flex-start;
+    line-height: 1.5;
+  }
+}
+
+@media (max-width: 480px) {
+  .frame {
+    padding: 8px;
+    gap: 10px;
+  }
+
+  .sidebarPanel {
+    padding: 14px 12px;
+    border-radius: 18px;
+  }
+
+  .section,
+  .heroCard,
+  .metricCard,
+  .card,
+  .resumeCard,
+  .impactCard,
+  .detailCard,
+  .skillGroup {
+    padding: 16px;
+    border-radius: 18px;
+  }
+
+  .section {
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+
+  .brandRow {
+    align-items: center;
+  }
+
+  .brand h1 {
+    font-size: 1.36rem;
+  }
+
+  .role {
+    font-size: 0.9rem;
+  }
+
+  .meta,
+  .metaSecondary,
+  .sectionCopy,
+  .projectDescription,
+  .detailList li,
+  .impactList li,
+  .evidenceList li,
+  .experienceList li,
+  .metricLabel,
+  .showcaseMetricLabel {
+    font-size: 0.92rem;
+    line-height: 1.6;
+  }
+
+  .heroCard h2 {
+    font-size: clamp(2rem, 11vw, 2.5rem);
+    line-height: 0.98;
+  }
+
+  .heroCopy {
+    font-size: 0.98rem;
+    line-height: 1.68;
+  }
+
+  .heroActions,
+  .footerActions {
+    width: 100%;
+  }
+
+  .heroActions a,
+  .footerActions a {
+    width: 100%;
+  }
+
+  .contactRow {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .showcaseMetricCard,
+  .projectCard,
+  .projectMiniCard {
+    padding: 16px;
+  }
+
+  .resumeTitle,
+  .impactTitle {
+    font-size: 1rem;
+  }
+
+  .projectLink {
+    padding: 8px 10px;
+    font-size: 0.8rem;
+  }
+
+  .resumePill,
+  .metaPill,
+  .heroChip {
+    padding: 7px 10px;
+    font-size: 0.74rem;
   }
 }
